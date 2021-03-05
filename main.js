@@ -13,7 +13,7 @@ let gameSpeed = 2;
 /////Images
 const bang = new Image();
 bang.src = 'download.png';
-
+//SKY
 const backgroundSKY = new Image();
 backgroundSKY.src = 'SS_Sky.png';
 const BGSKY = {
@@ -23,10 +23,50 @@ const BGSKY = {
     width: canvas.width,
     height: canvas.height
 }
-
+//CLOUD
 const backgroundCLOUD = new Image();
 backgroundCLOUD.src = 'SS_Cloud.png';
-const BG = {
+const BGCLOUD = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+//SUN
+const backgroundSUN = new Image();
+backgroundSUN.src = 'SS_Sun.png';
+//Planes
+const backgroundP1 = new Image();
+backgroundP1.src = 'SS_Plane1.png';
+const BGP1 = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+const backgroundP1 = new Image();
+backgroundP1.src = 'SS_Plane1.png';
+const BGP1 = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+const backgroundP1 = new Image();
+backgroundP1.src = 'SS_Plane1.png';
+const BGP1 = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+const backgroundP1 = new Image();
+backgroundP1.src = 'SS_Plane1.png';
+const BGP1 = {
     x1: 0, //pos on x axis
     x2: canvas.width,// pos on x for ssecond background
     y: 0,
@@ -36,19 +76,31 @@ const BG = {
 
 
 
+
 function handleBackground() {
     //SKY
     if (BGSKY.x1 <= -BGSKY.width + gameSpeed) BGSKY.x1 = BGSKY.width;
-    else BGSKY.x1 -= gameSpeed;
+    else BGSKY.x1 -= 1;
     if (BGSKY.x2 <= -BGSKY.width + gameSpeed) BGSKY.x2 = BGSKY.width;
-    else BGSKY.x2 -= gameSpeed;
-    //CLOUD
-    if (BG.x1 <= -BG.width + gameSpeed) BG.x1 = BG.width;
-    else BG.x1 -= gameSpeed;
-    if (BG.x2 <= -BG.width + gameSpeed) BG.x2 = BG.width;
-    else BG.x2 -= gameSpeed;
+    else BGSKY.x2 -= 1;
     ctx.drawImage(backgroundSKY, BGSKY.x1, BGSKY.y, BGSKY.width, BGSKY.height);
     ctx.drawImage(backgroundSKY, BGSKY.x2, BGSKY.y, BGSKY.width, BGSKY.height);
+
+    //SUN
+    ctx.drawImage(backgroundSUN, 0, 0, canvas.width, canvas.height);
+
+    //CLOUD
+    if (BGCLOUD.x1 <= -BGCLOUD.width + gameSpeed) BGCLOUD.x1 = BGCLOUD.width;
+    else BGCLOUD.x1 -= 3;
+    if (BGCLOUD.x2 <= -BGCLOUD.width + gameSpeed) BGCLOUD.x2 = BGCLOUD.width;
+    else BGCLOUD.x2 -= 3;
+    ctx.drawImage(backgroundCLOUD, BGCLOUD.x1, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
+    ctx.drawImage(backgroundCLOUD, BGCLOUD.x2, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
+    
+    
+
+
+
 
 }
 
@@ -64,7 +116,9 @@ function handleBackground() {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //ctx.fillRect(10, canvas.height - 90, 50, 50);
+    
     handleBackground();
+    
     handleObstacles();
     handleParticles();
 
