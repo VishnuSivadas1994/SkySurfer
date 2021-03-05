@@ -10,6 +10,10 @@ let frame = 0;
 let score = 0;
 let gameSpeed = 2;
 
+/////Images
+const bang = new Image();
+bang.src = 'download.png';
+
 //Create a gradient for fill styles
 // const gradient = ctx.createLinearGradient(0, 0, 0, 70);
 // gradient.addColorStop('0.4', '#fff');
@@ -53,8 +57,7 @@ window.addEventListener('keyup', function (e) {
 });
 
 
-const bang = new Image();
-bang.src = 'download.png';
+
 function handleCollisions() {
     for (let i = 0; i < obstaclesArray.length; i++) {
         if (bird.x < obstaclesArray[i].x + obstaclesArray[i].width &&
