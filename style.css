@@ -1,0 +1,16 @@
+#canvas1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 75px;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 600px;
+    border: 2px solid black;
+}
+body{
+    text-align: center;
+}
+custom{
+    color: black;
+}
