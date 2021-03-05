@@ -46,27 +46,27 @@ const BGP1 = {
     width: canvas.width,
     height: canvas.height
 }
-const backgroundP1 = new Image();
-backgroundP1.src = 'SS_Plane1.png';
-const BGP1 = {
+const backgroundP2 = new Image();
+backgroundP2.src = 'SS_Plane2.png';
+const BGP2 = {
     x1: 0, //pos on x axis
     x2: canvas.width,// pos on x for ssecond background
     y: 0,
     width: canvas.width,
     height: canvas.height
 }
-const backgroundP1 = new Image();
-backgroundP1.src = 'SS_Plane1.png';
-const BGP1 = {
+const backgroundP3 = new Image();
+backgroundP3.src = 'SS_Plane3.png';
+const BGP3 = {
     x1: 0, //pos on x axis
     x2: canvas.width,// pos on x for ssecond background
     y: 0,
     width: canvas.width,
     height: canvas.height
 }
-const backgroundP1 = new Image();
-backgroundP1.src = 'SS_Plane1.png';
-const BGP1 = {
+const backgroundP4 = new Image();
+backgroundP4.src = 'SS_Plane4.png';
+const BGP4 = {
     x1: 0, //pos on x axis
     x2: canvas.width,// pos on x for ssecond background
     y: 0,
@@ -89,6 +89,24 @@ function handleBackground() {
     //SUN
     ctx.drawImage(backgroundSUN, 0, 0, canvas.width, canvas.height);
 
+    //P1
+    if (BGP1.x1 <= -BGP1.width + gameSpeed) BGP1.x1 = BGP1.width;
+    else BGP1.x1 -= 5;
+    if (BGP1.x2 <= -BGP1.width + gameSpeed) BGP1.x2 = BGP1.width;
+    else BGP1.x2 -= 5;
+    ctx.drawImage(backgroundP1, BGP1.x1, BGP1.y, BGP1.width, BGP1.height);
+    ctx.drawImage(backgroundP1, BGP1.x2, BGP1.y, BGP1.width, BGP1.height);
+
+    //P2
+    if (BGP2.x1 <= -BGP2.width + gameSpeed) BGP2.x1 = BGP2.width;
+    else BGP2.x1 -= 6;
+    if (BGP2.x2 <= -BGP2.width + gameSpeed) BGP2.x2 = BGP2.width;
+    else BGP2.x2 -= 6;
+    ctx.drawImage(backgroundP2, BGP2.x1, BGP2.y, BGP2.width, BGP2.height);
+    ctx.drawImage(backgroundP2, BGP2.x2, BGP2.y, BGP2.width, BGP2.height);
+
+    
+
     //CLOUD
     if (BGCLOUD.x1 <= -BGCLOUD.width + gameSpeed) BGCLOUD.x1 = BGCLOUD.width;
     else BGCLOUD.x1 -= 3;
@@ -97,6 +115,21 @@ function handleBackground() {
     ctx.drawImage(backgroundCLOUD, BGCLOUD.x1, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
     ctx.drawImage(backgroundCLOUD, BGCLOUD.x2, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
     
+    //P3
+    if (BGP3.x1 <= -BGP3.width + gameSpeed) BGP3.x1 = BGP3.width;
+    else BGP3.x1 -= 4;
+    if (BGP3.x2 <= -BGP3.width + gameSpeed) BGP3.x2 = BGP3.width;
+    else BGP3.x2 -= 4;
+    ctx.drawImage(backgroundP3, BGP3.x1, BGP3.y, BGP3.width, BGP3.height);
+    ctx.drawImage(backgroundP3, BGP3.x2, BGP3.y, BGP3.width, BGP3.height);
+
+    //P4
+    if (BGP4.x1 <= -BGP4.width + gameSpeed) BGP4.x1 = BGP4.width;
+    else BGP4.x1 -= 3.5;
+    if (BGP4.x2 <= -BGP4.width + gameSpeed) BGP4.x2 = BGP4.width;
+    else BGP4.x2 -= 3.5;
+    ctx.drawImage(backgroundP4, BGP4.x1, BGP4.y, BGP4.width, BGP4.height);
+    ctx.drawImage(backgroundP4, BGP4.x2, BGP4.y, BGP4.width, BGP4.height);
     
 
 
