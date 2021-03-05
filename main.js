@@ -14,6 +14,44 @@ let gameSpeed = 2;
 const bang = new Image();
 bang.src = 'download.png';
 
+const backgroundSKY = new Image();
+backgroundSKY.src = 'SS_Sky.png';
+const BGSKY = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+
+const backgroundCLOUD = new Image();
+backgroundCLOUD.src = 'SS_Cloud.png';
+const BG = {
+    x1: 0, //pos on x axis
+    x2: canvas.width,// pos on x for ssecond background
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+
+
+
+function handleBackground() {
+    //SKY
+    if (BGSKY.x1 <= -BGSKY.width + gameSpeed) BGSKY.x1 = BGSKY.width;
+    else BGSKY.x1 -= gameSpeed;
+    if (BGSKY.x2 <= -BGSKY.width + gameSpeed) BGSKY.x2 = BGSKY.width;
+    else BGSKY.x2 -= gameSpeed;
+    //CLOUD
+    if (BG.x1 <= -BG.width + gameSpeed) BG.x1 = BG.width;
+    else BG.x1 -= gameSpeed;
+    if (BG.x2 <= -BG.width + gameSpeed) BG.x2 = BG.width;
+    else BG.x2 -= gameSpeed;
+    ctx.drawImage(backgroundSKY, BGSKY.x1, BGSKY.y, BGSKY.width, BGSKY.height);
+    ctx.drawImage(backgroundSKY, BGSKY.x2, BGSKY.y, BGSKY.width, BGSKY.height);
+
+}
+
 //Create a gradient for fill styles
 // const gradient = ctx.createLinearGradient(0, 0, 0, 70);
 // gradient.addColorStop('0.4', '#fff');
@@ -26,6 +64,7 @@ bang.src = 'download.png';
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //ctx.fillRect(10, canvas.height - 90, 50, 50);
+    handleBackground();
     handleObstacles();
     handleParticles();
 
@@ -67,7 +106,7 @@ function handleCollisions() {
                     bird.y + bird.height < canvas.height))) {
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "25px Georgia";
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
             ctx.fillText('Game Over, your score is ' + score, 160, canvas.height / 2 - 10);
             return true;
         }
