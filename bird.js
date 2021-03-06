@@ -11,6 +11,7 @@ class Bird {
         this.width = this.originalWidth / 10;
         this.height = this.originalHeight / 10;
         this.weight = 1;
+        this.frameX = 0;
     }
     update() {
         let curve = Math.sin(angle) * 20;
@@ -33,10 +34,12 @@ class Bird {
     draw() {
         ctx.fillStyle = 'black';
         //ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(playerSprite, 0, 0, this.originalWidth, this.originalHeight, this.x-20, this.y-12, this.width * 1.7, this.height * 1.7);
+        ctx.drawImage(playerSprite, this.frameX * this.originalWidth, 0, this.originalWidth, this.originalHeight, this.x - 20, this.y - 12, this.width * 1.7, this.height * 1.7);
     }
     flap() {
         this.vy -= 2;
+        if (this.frameX >= 2) this.frameX = 0;
+        else this.frameX++;
     }
 }
 const bird = new Bird();

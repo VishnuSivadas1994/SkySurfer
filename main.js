@@ -105,7 +105,7 @@ function handleBackground() {
     ctx.drawImage(backgroundP2, BGP2.x1, BGP2.y, BGP2.width, BGP2.height);
     ctx.drawImage(backgroundP2, BGP2.x2, BGP2.y, BGP2.width, BGP2.height);
 
-    
+
 
     //CLOUD
     if (BGCLOUD.x1 <= -BGCLOUD.width + gameSpeed) BGCLOUD.x1 = BGCLOUD.width;
@@ -114,7 +114,7 @@ function handleBackground() {
     else BGCLOUD.x2 -= 3;
     ctx.drawImage(backgroundCLOUD, BGCLOUD.x1, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
     ctx.drawImage(backgroundCLOUD, BGCLOUD.x2, BGCLOUD.y, BGCLOUD.width, BGCLOUD.height);
-    
+
     //P3
     if (BGP3.x1 <= -BGP3.width + gameSpeed) BGP3.x1 = BGP3.width;
     else BGP3.x1 -= 4;
@@ -130,7 +130,7 @@ function handleBackground() {
     else BGP4.x2 -= 3.5;
     ctx.drawImage(backgroundP4, BGP4.x1, BGP4.y, BGP4.width, BGP4.height);
     ctx.drawImage(backgroundP4, BGP4.x2, BGP4.y, BGP4.width, BGP4.height);
-    
+
 
 
 
@@ -149,9 +149,9 @@ function handleBackground() {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //ctx.fillRect(10, canvas.height - 90, 50, 50);
-    
+
     handleBackground();
-    
+
     handleObstacles();
     handleParticles();
 
@@ -193,8 +193,9 @@ function handleCollisions() {
                     bird.y + bird.height < canvas.height))) {
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "25px Georgia";
-            ctx.fillStyle = 'white';
-            ctx.fillText('Game Over, your score is ' + score, 160, canvas.height / 2 - 10);
+            ctx.fillStyle = 'black';
+            if (score <= 1) ctx.fillText('Game Over, you survived ' + score + ' building!', 160, canvas.height / 2 - 10);
+            else ctx.fillText('Game Over, you survived ' + score + ' buildings!', 160, canvas.height / 2 - 10);
             return true;
         }
     }
