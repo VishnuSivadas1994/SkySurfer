@@ -1,15 +1,19 @@
 const particleArray = [];
 
+const smokeArray = ["black", "gray", "red", "orange", "black", "gray"];
+
+// const random = Math.floor(Math.random() * smokeArray.length);
+// console.log(random, smokeArray[random]);
 
 
 class Particle {
     constructor() {
         this.x = bird.x;
-        this.y = bird.y;
-        this.size = Math.random() * 7 + 3;
+        this.y = bird.y + 20;
+        this.size = Math.random() * 8;
         this.speedY = (Math.random() * 1) - 0.5;
         //this.color = 'hsla('+hue+',100%,50%,0.8)';//USe this for Hue
-        this.color = 'black';
+        this.color = smokeArray[Math.floor(Math.random() * smokeArray.length)];
 
     }
     update() {
@@ -30,9 +34,24 @@ function handleParticles() {
     for (let i = 0; i < particleArray.length; i++) {
         particleArray[i].update();
         particleArray[i].draw();
+        for (let j = i; j < particleArray.length; j++) {
+            //pythagorean theorem
+            const dx = particleArray[i].x - particleArray[j].x;
+            const dy = particleArray[i].y - particleArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 20) {
+                ctx.beginPath();
+                ctx.strokeStyle = particleArray[i].color;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(particleArray[i].x, particleArray[i].y);
+                ctx.lineTo(particleArray[j].x, particleArray[j].y);
+                ctx.stroke();
+                
+            }
+        }
     }
-    if (particleArray.length > 100) {
-        for (let i = 0; i < 20; i++) {
+    if (particleArray.length > 70) {
+        for (let i = 0; i < 10; i++) {
             particleArray.pop(particleArray[i]);
         }
     }
