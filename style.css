@@ -13,6 +13,8 @@ body{
     text-align: center;
     background-color: black;
     background-image: url('SS_Sky.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 custom{
     color: black;
