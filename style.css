@@ -3,6 +3,7 @@
     top: 50%;
     left: 50%;
     margin-top: 75px;
+    margin-bottom: 20px;
     transform: translate(-50%,-50%);
     width: 800px;
     height: 600px;
@@ -11,7 +12,11 @@
 body{
     text-align: center;
     background-color: black;
+    background-image: url('SS_Sky.png');
 }
 custom{
-    color: white;
+    color: black;
+}
+footer{
+    position: fixed;
 }

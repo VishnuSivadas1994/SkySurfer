@@ -158,7 +158,7 @@ function animate() {
     bird.update();
     bird.draw();
 
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'red';
     ctx.font = '90px Geogia';
     ctx.strokeText(score, 450, 70);
     ctx.fillText(score, 450, 70);
