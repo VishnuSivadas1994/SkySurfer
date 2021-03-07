@@ -12,7 +12,7 @@ let gameSpeed = 2;
 
 /////Images
 const bang = new Image();
-bang.src = 'download.png';
+bang.src = 'SS_Explosion.png';
 //SKY
 const backgroundSKY = new Image();
 backgroundSKY.src = 'SS_Sky.png';
