@@ -1,12 +1,13 @@
 const obstaclesArray = [];
-
+const obstacleSprite = new Image();
+obstacleSprite.src = 'SS_Obstacle.png';
 
 class Obstacle {
     constructor() {
         this.top = (Math.random() * canvas.height / 3) + 20;
         this.bottom = (Math.random() * canvas.height / 3) + 20;
         this.x = canvas.clientWidth;
-        this.width = 20;
+        this.width = 50;
         //this.color = 'hsla(' + hue + ',100%,50%,1)';//Use this for Hue
         this.color = 'black';
         this.counted = false;
@@ -15,6 +16,7 @@ class Obstacle {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, 0, this.width, this.top);
         ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
+
 
     }
     update() {
